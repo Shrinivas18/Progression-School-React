@@ -1,0 +1,50 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.password-container {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+#password {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.strength-meter {
+  height: 5px;
+  margin-top: 10px;
+  width: 100%;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.weak {
+  background-color: red;
+}
+
+.medium {
+  background-color: orange;
+}
+
+.strong {
+  background-color: green;
+}
+
+.tips {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.tip {
+  margin: 5px 0;
+}
+
+.tip.hidden {
+  display: none;
+}

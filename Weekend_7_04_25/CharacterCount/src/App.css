@@ -1,0 +1,9 @@
+body{
+  font-family:"Arial, sans-serif";
+  padding: "1rem";
+}
+
+.textArea{
+  padding: "0.5rem";
+  outline: "none";
+}

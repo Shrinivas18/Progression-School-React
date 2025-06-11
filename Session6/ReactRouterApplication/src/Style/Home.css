@@ -1,0 +1,49 @@
+.homeContainer {
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #1f2937;
+    border-radius: 8px;
+    justify-content: center;
+    background-color: snow;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);    
+
+  }
+  
+  .homeContainer h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  .homeContainer p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .homeContainer ul {
+    list-style: disc inside;
+    margin-bottom: 2rem;
+  }
+  
+  .highlight {
+    font-weight: 600;
+  }
+  
+  .infoBox {
+    background-color: #e8f1ff;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+    border: 1px solid #c7dcff;
+  }
+  
+  .infoBox h3 {
+    color: #1d4ed8;
+    margin-bottom: 0.5rem;
+  }
+  
+  .blueText {
+    color: #2563eb;
+    font-weight: 500;
+  }
+  

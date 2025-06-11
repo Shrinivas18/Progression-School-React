@@ -1,0 +1,75 @@
+/* App.css */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f3f4f6;
+  color: #1f2937;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.fetchedData {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  margin: 20px auto;
+  padding: 25px;
+  width: 90%;
+  max-width: 600px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fetchedData:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.fetchedData h2 {
+  font-size: 20px;
+  margin: 10px 0;
+  color: #111827;
+}
+
+h2 {
+  font-weight: 600;
+}
+
+.error-message {
+  color: #dc2626;
+  background: #fee2e2;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  background-color: #3b82f6;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #2563eb;
+}
+
+@media (max-width: 600px) {
+  .fetchedData h2 {
+    font-size: 18px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+}

@@ -1,0 +1,60 @@
+/* Global Reset and Styling */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Main Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+}
+
+/* Loading Spinner */
+.container > .ClipLoader {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Card Container */
+.cardContainer {
+  background-color: white;
+  padding: 25px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardContainer:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.cardContainer h2 {
+  font-size: 18px;
+  color: #333;
+  margin: 10px 0;
+}
+
+/* Error Message */
+.container h2 {
+  width: 100%;
+  text-align: center;
+  color: crimson;
+  font-size: 15px;
+  margin-top: 10px;
+}

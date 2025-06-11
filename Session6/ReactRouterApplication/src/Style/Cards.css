@@ -1,0 +1,80 @@
+.parentContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.parentContainer h1{
+    margin-left: 8%;
+}
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .cardsInfo {
+    flex: 0 0 calc(40% - 1rem); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);    
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: snow;
+  }
+
+  .name p{
+  margin: 0.8rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: rgb(74, 73, 73);
+}
+
+.email p{
+    margin-top: 0.8rem;
+    color: rgb(112, 110, 110);
+
+}
+.website p {
+    margin: 0;
+    color: rgb(112, 110, 110);
+}
+  .name,
+  .email,
+  .website {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .name i{
+    color:#2563eb;
+
+  }
+  
+  .cardsInfo button{
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    padding:0.8rem 1.5rem 0.8rem 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #2563eb;
+    color: white;
+    cursor: pointer;
+ }
+
+ .error {
+  color: #b91c1c; 
+  background-color: #fee2e2; 
+  border: 1px solid #fca5a5; 
+  padding: 1rem 1.5rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+ 

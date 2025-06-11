@@ -1,0 +1,128 @@
+.parentContainer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f8f9fc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .mainHeader {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  .mainHeader span {
+    color: #6c63ff; /* purple highlight for "Your Business" */
+  }
+  
+  .subHeader {
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    color: #555;
+  }
+  
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+  
+  .cardFrame {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 300px;
+    transition: transform 0.2s ease;
+  }
+  
+  .cardFrame:hover {
+    transform: translateY(-5px);
+  }
+  
+  .plan {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .description {
+    color: #777;
+    margin-bottom: 1rem;
+  }
+  
+  .price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #222;
+  }
+  
+  .price span {
+    font-size: 1rem;
+    font-weight: normal;
+    color: #555;
+  }
+  
+  .featureList {
+    margin: 1rem 0;
+    text-align: left;
+  }
+  
+  .tickFeature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .tickFeature img {
+    height: 16px;
+    width: 16px;
+  }
+  
+  .tickFeature p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #333;
+  }
+  
+  .bt {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #cfd8ff;
+    color: #2d2d2d;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .bt:hover,
+  .bt:focus {
+    opacity: 0.9;
+  }
+  
+  .cardFrame:nth-child(2) .bt {
+    background-color: #6c63ff;
+    color: white;
+  }
+  
+  .cardFrame:nth-child(2) {
+    border: 2px solid #6c63ff;
+    box-shadow: 0 8px 20px rgba(108, 99, 255, 0.2);
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .cards {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .cardFrame {
+      width: 90%;
+    }
+  }
+  

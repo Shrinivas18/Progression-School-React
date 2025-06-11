@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
+
+<script type="text/babel">
+        const movies = [
+  { title: "Inception", hero: "Leonardo DiCaprio" },
+  { title: "Iron Man", hero: "Robert Downey Jr." },
+  { title: "Baahubali", hero: "Prabhas" }
+];
+  
+  const ShowData=()=>{
+            return(
+                movies.map((item,index)=>{
+                    return(
+                        <div key={index}>
+                        <p>Movie: {item.title}, Hero: {item.hero}</p>
+                    </div>
+                    )
+                }
+            ))
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<ShowData />)
+</script>

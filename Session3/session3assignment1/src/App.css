@@ -1,0 +1,15 @@
+.bt{
+  border-radius: 8px;
+  font-size: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+div{
+  display: flex;
+  gap: 1rem;
+}
+
+.bt:hover{
+  transform: translateY(-5px);
+}

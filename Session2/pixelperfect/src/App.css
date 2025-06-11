@@ -1,0 +1,148 @@
+body{
+  background-color: #f8f9fc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.parentContainer {
+}
+
+.mainHeader {
+  text-align: center;
+  /* border: 1px solid black; */
+  font-size: 50px;
+  margin-top: 1rem;
+}
+
+.mainHeader span {
+  color: rgb(61, 61, 214);
+}
+
+.subHeader {
+  text-align: center;
+  /* border: 1px solid black; */
+  width: 65vw;
+  justify-self: center;
+  color: rgb(76, 71, 71);
+  font-size: 1.4rem;
+  margin-top: 0.5rem;
+}
+
+.cards {
+  /* border: 1px solid red; */
+  /* padding: 10px; */
+  display: flex;
+  flex-wrap: wrap;
+  /* height: 70vh; */
+  flex:auto;
+  align-items: stretch;
+  /* justify-self: center;   Only works when display is Grid Layout, not in flex */
+  gap: 1rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+.cardFrame {
+  /* border: 1px solid blue; */
+  flex: 1;
+  gap:1rem;
+  justify-content: center;
+  align-items: stretch;
+  border-radius: 10px;
+  flex-wrap: wrap;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  /* margin: 10px; */
+  background-color: white;
+}
+
+.tickFeature {
+  display: flex;
+  /* border: 1px solid black; */
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  height: 1.5rem;
+  align-items: center;
+  width: max-content;
+  margin-bottom: 0.5rem;
+}
+
+.tickFeature img {
+  height: 16px;
+  width: 16px;
+}
+
+.tickFeature p {
+  margin: 0;
+}
+
+.plan {
+  font-size: 2rem;
+  /* justify-content: left;   Only works when display is Grid Layout */
+  /* border: 1px solid black; */
+  width:20vw;
+  text-align: left;
+  margin-bottom: 0.2rem;
+}
+
+.description {
+  /* justify-self: left;   Only works when display is Grid Layout  */
+  width: 15vw;
+  color: rgb(76, 71, 71);
+  /* border: 1px solid black; */
+  text-align: left;
+  margin-top: 0;
+
+  /* justify-content:center;  Only applies if display is flex/grid */
+}
+
+.price {
+  font-size: 3rem;
+  font-weight: bolder;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+}
+
+.price span {
+  font-size: 1.25rem;
+  font-weight: 50;
+  color: rgb(76, 71, 71);
+}
+
+.bt {
+  width: 90%;
+  border: 1px solid  #6c63ff;
+  font-size: 1.25rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #f3f3fa;
+  color: #2d2d2d;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: auto;
+  margin-bottom: 1rem;
+}
+
+.bt:hover{
+  transform: translateY(-5px);
+  color: white;
+  background-color: #8582f3;
+}
+
+.cardFrame:nth-child(2) .bt{
+  background-color: #6c63ff;
+  color: white;
+}
+
+@media(max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cardFrame {
+    width: 90%;
+  }
+}

@@ -1,0 +1,148 @@
+.contact-page {
+    padding: 40px;
+    background-color: #f3f4f6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .contact-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 30px;
+  }
+  
+  .contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+  }
+  
+  .contact-card {
+    flex: 1;
+    max-width: 400px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  }
+  
+  .contact-card h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #111827;
+  }
+  
+  .contact-info {
+    margin-bottom: 20px;
+  }
+  
+  .info-block {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 12px;
+  }
+  
+  .icon {
+    font-size: 20px;
+    color: #2563eb;
+    flex-shrink: 0;
+    margin-top: 0; 
+    line-height: 1;
+  }
+  
+  .label {
+    font-weight: 600;
+    margin-bottom: 2px;
+    color: #1f2937;
+  }
+  
+  .value {
+    margin: 0;
+    color: #374151;
+    font-size: 0.95rem;
+  }
+  
+  .divider {
+    border: none;
+    height: 1px;
+    background-color: #e5e7eb;
+    margin: 20px 0;
+  }
+  
+  .contact-form {
+    flex: 2;
+    min-width: 300px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  }
+  
+  .contact-form h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 20px;
+  }
+  
+  .input-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .input-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+  }
+  
+  .input-group label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #374151;
+  }
+  
+  input,
+  textarea {
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    color: #111827;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  .send-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    background-color: #2563eb;
+    color: #ffffff;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .send-button:hover {
+    background-color: #1d4ed8;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .contact-wrapper {
+      flex-direction: column;
+    }
+  }
+  
