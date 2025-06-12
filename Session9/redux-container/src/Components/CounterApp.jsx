@@ -2,16 +2,16 @@ import {
   incrementCounter,
   decrementCounter,
   resetCounter,
-} from "../redux/actionTypes";
+} from "../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 function CounterApp() {
   //   const [CounterApp, dispatch] = useReducer(counterReducer, initialState);
   const dispatch = useDispatch();
-  const counter = useSelector((count) => console.log(count));
+  const counter = useSelector((count) => count.stepCounter);
   return (
     <div>
-      {/* <h1>{CounterApp.stepCounter}</h1> */}
+      <h1>{counter}</h1>
       <button onClick={() => dispatch(incrementCounter(1))}>
         Increment by 1
       </button>
