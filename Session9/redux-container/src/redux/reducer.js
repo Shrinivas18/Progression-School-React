@@ -17,7 +17,7 @@ export const counterReducer = (currentState=initialState, action) => {
         stepCounter: currentState.stepCounter - action.payload,
       };
     case RESET:
-      return { ...initialState };
+      return {...currentState,stepCounter:initialState.stepCounter};
     default:
       return currentState;
   }

@@ -1,34 +1,53 @@
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import {
   incrementCounter,
   decrementCounter,
   resetCounter,
 } from "../redux/actions";
-import { useDispatch, useSelector } from "react-redux";
+import "../App.css";
 
-function CounterApp() {
-  //   const [CounterApp, dispatch] = useReducer(counterReducer, initialState);
+function Counter() {
+  const counter = useSelector((state) => state.stepCounter);
   const dispatch = useDispatch();
-  const counter = useSelector((count) => count.stepCounter);
+
   return (
-    <div>
-      <h1>{counter}</h1>
-      <button onClick={() => dispatch(incrementCounter(1))}>
-        Increment by 1
-      </button>
-      <button onClick={() => dispatch(incrementCounter(5))}>
-        Increment by 5
-      </button>
-      <button onClick={() => dispatch(decrementCounter(1))}>
-        Decrement by 1
-      </button>
-      <button onClick={() => dispatch(decrementCounter(5))}>
-        Decrement by 5
-      </button>
-      <button onClick={() => dispatch(resetCounter({ type: "reset" }))}>
-        Reset
-      </button>
+    <div className="counter-wrapper">
+      <div className="counter-value">{counter}</div>
+      <div className="button-group">
+        <button
+          className="counter-button"
+          onClick={() => dispatch(incrementCounter(1))}
+        >
+          +1
+        </button>
+        <button
+          className="counter-button"
+          onClick={() => dispatch(incrementCounter(5))}
+        >
+          +5
+        </button>
+        <button
+          className="counter-button"
+          onClick={() => dispatch(decrementCounter(1))}
+        >
+          -1
+        </button>
+        <button
+          className="counter-button"
+          onClick={() => dispatch(decrementCounter(5))}
+        >
+          -5
+        </button>
+        <button
+          className="counter-button reset"
+          onClick={() => dispatch(resetCounter())}
+        >
+          Reset
+        </button>
+      </div>
     </div>
   );
 }
 
-export default CounterApp;
+export default Counter;
