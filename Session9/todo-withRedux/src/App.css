@@ -1,0 +1,106 @@
+/* ToDo.css */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f7f9fc;
+  margin: 0;
+  padding: 0;
+}
+
+.todo-container {
+  max-width: 500px;
+  margin: 50px auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.todo-container h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.todo-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.todo-form input {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  transition: border-color 0.3s;
+}
+
+.todo-form input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.todo-form button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.todo-form button:hover {
+  background-color: #0056b3;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f1f3f5;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: background 0.2s;
+}
+
+.todo-item:hover {
+  background: #e9ecef;
+}
+
+.todo-item li {
+  flex: 1;
+  color: #333;
+  font-size: 1rem;
+}
+
+.todo-item button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.todo-item button:first-of-type {
+  background-color: #ffc107;
+  color: white;
+}
+
+.todo-item button:last-of-type {
+  background-color: #dc3545;
+  color: white;
+}
+
+.todo-item button:hover {
+  opacity: 0.9;
+}
