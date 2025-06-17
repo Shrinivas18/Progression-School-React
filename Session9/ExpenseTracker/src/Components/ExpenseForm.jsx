@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addExpense } from "../redux/actions";
+import { v4 as uuid } from "uuid";
 
 function ExpenseForm() {
   const [formData, setFormData] = useState({
+    id: "",
     description: "",
     amount: "",
     category: "other",
@@ -21,7 +23,14 @@ function ExpenseForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addExpense(formData));
+    const newData = { ...formData, id: uuid() };
+    dispatch(addExpense(newData));
+    setFormData({
+      id: "",
+      description: "",
+      amount: "",
+      category: "other",
+    });
   };
   return (
     <div className="bg-white mt-5 shadow-md rounded-lg">
@@ -47,7 +56,7 @@ function ExpenseForm() {
         <select
           className="border p-2 rounded-md shadow-md"
           name="category"
-          value={formData.value}
+          value={formData.category}
           onChange={handleChange}
           required
         >

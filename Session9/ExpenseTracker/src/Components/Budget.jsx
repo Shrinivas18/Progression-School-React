@@ -4,7 +4,7 @@ import { setBudget } from "../redux/actions";
 function Budget() {
   const dispatch = useDispatch();
   const budgetValue = useSelector((state) => state.budget);
-  const [newBudget, setNewBudget] = useState(0);
+  const [newBudget, setNewBudget] = useState("");
   const updateAmounts = (e) => {
     e.preventDefault();
     dispatch(setBudget(newBudget));
