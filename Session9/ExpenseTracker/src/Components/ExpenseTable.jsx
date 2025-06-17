@@ -5,13 +5,12 @@ import { deleteExpense, patchExpense } from "../redux/actions";
 function ExpenseTable() {
   const expenses = useSelector((state) => state.expenses);
   const expenses1 = useSelector((state) => state);
-  console.log(expenses);
-  console.log(expenses1);
+
   const dispatch = useDispatch();
 
   const patchData = (id) => {
     const data = expenses.find((expense) => expense.id === id);
-    dispatch(patchExpense(id, data));
+    dispatch(patchExpense(data));
   };
 
   const deleteData = (id) => {
@@ -47,17 +46,17 @@ function ExpenseTable() {
                   {item.category}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">
-                  ₹{item.amount}
+                  <span className="text-black text-bold">$</span> {item.amount}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-center">
                   <button
-                    className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded text-sm mr-2"
+                    className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded text-sm mr-2 cursor-pointer"
                     onClick={() => patchData(item.id)}
                   >
                     Edit
                   </button>
                   <button
-                    className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm"
+                    className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm cursor-pointer"
                     onClick={() => deleteData(item.id)}
                   >
                     Delete

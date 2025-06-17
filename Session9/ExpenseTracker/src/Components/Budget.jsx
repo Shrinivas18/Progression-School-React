@@ -4,11 +4,22 @@ import { setBudget } from "../redux/actions";
 function Budget() {
   const dispatch = useDispatch();
   const budgetValue = useSelector((state) => state.budget);
+  const expensesList = useSelector((state) => state.expenses);
+
+  let sum = 0;
+  for (let i = 0; i < expensesList.length; i++) {
+    sum = Number(sum) + Number(expensesList[i]["amount"]);
+  }
+  let total_expense = sum;
+  let remainingBudget = Number(budgetValue) - Number(total_expense);
+
   const [newBudget, setNewBudget] = useState("");
+
   const updateAmounts = (e) => {
     e.preventDefault();
-    dispatch(setBudget(newBudget));
+    dispatch(setBudget(newBudget, total_expense, remainingBudget));
   };
+
   return (
     <div className="shadow-md bg-white mt-10 p-6 rounded-xl">
       <form className="flex" onSubmit={updateAmounts}>
@@ -20,7 +31,7 @@ function Budget() {
           onChange={(e) => setNewBudget(e.target.value)}
         />
         <button
-          className="bg-blue-600 p-3 text-white w-[10%] rounded-lg"
+          className="bg-blue-600 p-3 hover:bg-blue-700 cursor-pointer text-white w-[10%] rounded-lg"
           type="submit"
         >
           Set Budget
@@ -40,11 +51,11 @@ function Budget() {
           <h3 className="text-green-500 font-bold text-[0.8rem]">
             Total Expense
           </h3>
-          <p className="text-[1.5rem]">$0</p>
+          <p className="text-[1.5rem]">${total_expense}</p>
         </div>
         <div className="bg-yellow-50 p-3 rounded-lg">
           <h3 className="text-yellow-500 font-bold text-[0.8rem]">Remaining</h3>
-          <p className="text-[1.5rem]">$0</p>
+          <p className="text-[1.5rem]">${remainingBudget}</p>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addExpense } from "../redux/actions";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addExpense, updateExpense } from "../redux/actions";
 import { v4 as uuid } from "uuid";
 
 function ExpenseForm() {
@@ -11,6 +11,9 @@ function ExpenseForm() {
     category: "other",
   });
 
+  const [isEdit, setIsEdit] = useState(false);
+
+  const editExpense = useSelector((state) => state.editExpenseData);
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -23,8 +26,14 @@ function ExpenseForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newData = { ...formData, id: uuid() };
-    dispatch(addExpense(newData));
+
+    if (editExpense) {
+      dispatch(updateExpense(formData));
+      setIsEdit(false);
+    } else {
+      const newData = { ...formData, id: uuid() };
+      dispatch(addExpense(newData));
+    }
     setFormData({
       id: "",
       description: "",
@@ -32,6 +41,14 @@ function ExpenseForm() {
       category: "other",
     });
   };
+
+  useEffect(() => {
+    if (editExpense) {
+      setFormData(editExpense);
+      setIsEdit(true);
+    }
+  }, [editExpense]);
+
   return (
     <div className="bg-white mt-5 shadow-md rounded-lg">
       <form className="grid grid-cols-4 p-7 gap-3" onSubmit={handleSubmit}>
@@ -66,8 +83,11 @@ function ExpenseForm() {
           <option value="entertainment">Entertainment</option>
           <option value="utilities">Utilities</option>
         </select>
-        <button type="submit" className="bg-green-500 rounded-md shadow-lg">
-          Add Expense
+        <button
+          type="submit"
+          className="bg-green-500 hover:bg-green-600 text-white rounded-md shadow-lg cursor-pointer"
+        >
+          {isEdit ? "Update Expense" : "Add Expense"}
         </button>
       </form>
     </div>

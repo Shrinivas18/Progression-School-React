@@ -2,10 +2,11 @@ export const SET_BUDGET ="set_budget"
 export const ADD_EXPENSE="add_expense"
 export const PATCH_EXPENSE= "patch_expense"
 export const DELETE_EXPENSE = "delete_expense"
+export const UPDATE_EXPENSE = "update_expense"
 
-export const setBudget=(amount)=>({
+export const setBudget=(budget, totalExpense, remaining)=>({
     type:SET_BUDGET,
-    payload:amount
+    payload:{budget:budget,totalExpense:totalExpense,remaining:remaining}
 })
 
 export const addExpense=(expense)=>({
@@ -13,9 +14,14 @@ export const addExpense=(expense)=>({
     payload:expense
 })
 
-export const patchExpense=(id,expense)=>({
+export const patchExpense=(expense)=>({
     type: PATCH_EXPENSE,
-    payload : {id, expense}
+    payload : expense
+})
+
+export const updateExpense=(expense)=>({
+    type: UPDATE_EXPENSE,
+    payload : expense
 })
 
 export const deleteExpense=(id)=>({
