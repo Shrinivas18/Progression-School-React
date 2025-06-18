@@ -24,7 +24,11 @@ export const expenseReducer = (state = initialState, action) => {
         remaining: action.payload.remaining,
       };
     case ADD_EXPENSE:
-      return { ...state, expenses: [...state.expenses, action.payload],editExpenseData:null  };
+      return {
+        ...state,
+        expenses: [...state.expenses, action.payload],
+        editExpenseData: null,
+      };
     case PATCH_EXPENSE:
       return { ...state, editExpenseData: action.payload };
     case UPDATE_EXPENSE:
@@ -33,6 +37,7 @@ export const expenseReducer = (state = initialState, action) => {
         expenses: state.expenses.map((item) =>
           item.id === action.payload.id ? action.payload : item
         ),
+        editExpenseData: null,
       };
     case DELETE_EXPENSE:
       return {
