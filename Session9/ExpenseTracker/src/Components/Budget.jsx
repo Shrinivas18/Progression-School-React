@@ -31,7 +31,7 @@ function Budget() {
           onChange={(e) => setNewBudget(e.target.value)}
         />
         <button
-          className="bg-blue-600 p-3 hover:bg-blue-700 cursor-pointer text-white w-[10%] rounded-lg"
+          className="w-32 break-words text-center bg-blue-600 p-3 hover:bg-blue-700 cursor-pointer text-white rounded-lg"
           type="submit"
         >
           Set Budget

@@ -37,7 +37,7 @@ function SearchBox({ searchItem, setSearchItem }) {
       {iconClicked && (
         <div className="shadow-lg w-full p-1 mb-2 rounded-lg">
           <input
-            className="hover:bg-white w-[90%] outline-0 pl-1"
+            className="hover:bg-white w-[96%] outline-0 pl-1"
             type="text"
             name="searchItem"
             value={searchItem}
