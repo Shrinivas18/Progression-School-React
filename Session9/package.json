@@ -3,6 +3,7 @@
     "lodash": "^4.17.21",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.6.2",
+    "recharts": "^2.15.4",
     "redux": "^5.0.1",
     "uuid": "^11.1.0"
   }

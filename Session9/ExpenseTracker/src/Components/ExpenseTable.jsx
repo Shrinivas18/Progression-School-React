@@ -23,6 +23,7 @@ function ExpenseTable() {
   const filteredData = expenses.filter((item) =>
     item.description.toLowerCase().includes(searchItem.toLowerCase())
   );
+
   return (
     <div>
       <button
@@ -37,9 +38,9 @@ function ExpenseTable() {
         />
       </button>
       {showTable && (
-        <div className="w-full mx-auto p-4 bg-white rounded-xl shadow-lg mt-4">
+        <div className="w-full mx-auto p-4 bg-white rounded-xl shadow-lg mt-4 overflow-x-auto">
           <SearchBox searchItem={searchItem} setSearchItem={setSearchItem} />
-          <table className="min-w-full divide-y divide-gray-200 shadow-lg">
+          <table className="min-w-full divide-y divide-gray-200 shadow-lg overflow-x-auto">
             <thead className="bg-gray-100">
               <tr>
                 <th className="px-6 py-3 text-left text-sm font-medium text-gray-700 uppercase tracking-wider">
