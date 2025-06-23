@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import {
   BarChart as ReBarChart,
@@ -9,13 +9,15 @@ import {
   Legend,
   ResponsiveContainer,
   CartesianGrid,
+  Cell,
 } from "recharts";
 import barchart from "../assets/bar-chart.png";
+
+const COLORS = ["#005F99", "#007A65", "#B38600", "#CC5C00", "#6A1B9A"];
 
 function Barchart() {
   const expenses = useSelector((state) => state.expenses) || [];
 
-  console.log("Barchart", expenses);
   const groupedData = expenses.reduce((acc, curr) => {
     const existing = acc.find((item) => item.category === curr.category);
     if (existing) {
@@ -29,10 +31,6 @@ function Barchart() {
     return acc;
   }, []);
 
-  useEffect(() => {
-    console.log("BarChart Grouped Expenses:", groupedData);
-  }, [groupedData]);
-
   return (
     <div className="p-2 mt-5">
       {groupedData.length > 0 ? (
@@ -42,11 +40,18 @@ function Barchart() {
             margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
           >
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="category" />
+            <XAxis />
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="amount" fill="#8884d8" />
+            <Bar dataKey="amount">
+              {groupedData.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={COLORS[index % COLORS.length]}
+                />
+              ))}
+            </Bar>
           </ReBarChart>
         </ResponsiveContainer>
       ) : (
