@@ -44,7 +44,7 @@ function Budget() {
 
         {/* Summary Cards */}
 
-        <div className="grid grid-cols-3 gap-5 mt-8">
+        <div className="grid grid-cols-3 gap-5 mt-8 text-wrap">
           <div className="bg-purple-50 p-2 rounded-lg">
             <h3 className="text-blue-500 font-bold text-[0.8rem]">
               Total Budget
@@ -66,11 +66,11 @@ function Budget() {
         </div>
       </div>
       <h2 className="text-xl font-semibold mt-5">Expense Distribution</h2>
-      <div className="flex flex-col lg:flex-row gap-6 justify-center items-center mb-5">
-        <div className="w-full max-w-[500px] h-[300px]">
+      <div className="flex flex-col lg:flex-row gap-10 mb-5">
+        <div className="w-full max-w-[40%] h-[40%]">
           <Piechart />
         </div>
-        <div className="w-full max-w-[500px] h-[300px]">
+        <div className="w-full max-w-[40%] h-[40%]">
           <Barchart />
         </div>
       </div>
