@@ -3,7 +3,7 @@ import "./App.css";
 import Budget from "./Components/Budget";
 import ExpenseForm from "./Components/ExpenseForm";
 import ExpenseTable from "./Components/ExpenseTable";
-import SideBar from "./Components/sideBar";
+import SideBar from "./Components/SideBar";
 
 function App() {
   return (
