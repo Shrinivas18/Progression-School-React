@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteExpense, patchExpense } from "../redux/actions";
 import SearchBox from "./SearchBox";
@@ -10,6 +10,8 @@ function ExpenseTable() {
   const [searchItem, setSearchItem] = useState("");
   const dispatch = useDispatch();
   const [showTable, setShowTable] = useState();
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
 
   const patchData = (id) => {
     const data = expenses.find((expense) => expense.id === id);
@@ -23,6 +25,16 @@ function ExpenseTable() {
   const filteredData = expenses.filter((item) =>
     item.description.toLowerCase().includes(searchItem.toLowerCase())
   );
+
+  const dataToDisplay = searchItem ? filteredData : expenses;
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = dataToDisplay.slice(indexOfFirstItem, indexOfLastItem);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchItem]);
 
   return (
     <div>
@@ -58,7 +70,7 @@ function ExpenseTable() {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {(searchItem ? filteredData : expenses).map((item) => {
+              {currentItems.map((item) => {
                 return (
                   <tr key={item.id} className="hover:bg-gray-50">
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
@@ -90,6 +102,30 @@ function ExpenseTable() {
               })}
             </tbody>
           </table>
+          <div className="flex justify-center items-center mt-4 space-x-4">
+            <button
+              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded disabled:opacity-50"
+              onClick={() => setCurrentPage(currentPage - 1)}
+              disabled={currentPage === 1}
+            >
+              Previous
+            </button>
+
+            <span className="text-sm text-gray-700">
+              Page {currentPage} of{" "}
+              {Math.ceil(dataToDisplay.length / itemsPerPage)}
+            </span>
+
+            <button
+              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded disabled:opacity-50"
+              onClick={() => setCurrentPage(currentPage + 1)}
+              disabled={
+                currentPage === Math.ceil(dataToDisplay.length / itemsPerPage)
+              }
+            >
+              Next
+            </button>
+          </div>
         </div>
       )}
     </div>
