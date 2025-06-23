@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addExpense, updateExpense } from "../redux/actions";
 import { v4 as uuid } from "uuid";
-import { selectRemaining } from "../commons/budgetCalculation";
+import {
+  selectRemaining,
+  selectTotalExpense,
+} from "../commons/budgetCalculation";
 
 function ExpenseForm() {
   const [formData, setFormData] = useState({
@@ -13,6 +16,12 @@ function ExpenseForm() {
   });
   const remaining = useSelector(selectRemaining);
   const [isEdit, setIsEdit] = useState(false);
+
+  const totalExpense = useSelector(selectTotalExpense);
+
+  const budgetValue = useSelector((state) => state.budget);
+
+  const [amountToBeEdited, setAmountToBeEdited] = useState(null);
 
   const editExpense = useSelector((state) => state.editExpenseData);
   const dispatch = useDispatch();
@@ -29,12 +38,29 @@ function ExpenseForm() {
     e.preventDefault();
 
     if (editExpense) {
-      dispatch(updateExpense(formData));
-      setIsEdit(false);
+      if (totalExpense <= budgetValue) {
+        if (
+          Number(
+            totalExpense - Number(amountToBeEdited) + Number(formData.amount)
+          ) <= budgetValue
+        ) {
+          dispatch(updateExpense(formData));
+          setIsEdit(false);
+        } else {
+          alert("Expenses going out of Budget");
+        }
+      } else {
+        alert("Expenses going out of Budget");
+      }
     } else {
-      const newData = { ...formData, id: uuid() };
-      dispatch(addExpense(newData));
+      if (totalExpense <= budgetValue) {
+        const newData = { ...formData, id: uuid() };
+        dispatch(addExpense(newData));
+      } else {
+        alert("Expenses going out of Budget");
+      }
     }
+
     setFormData({
       id: "",
       description: "",
@@ -45,6 +71,7 @@ function ExpenseForm() {
 
   useEffect(() => {
     if (editExpense) {
+      setAmountToBeEdited(editExpense.amount);
       setFormData(editExpense);
       setIsEdit(true);
     }
