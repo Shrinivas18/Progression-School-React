@@ -5,8 +5,8 @@ import {
   selectTotalExpense,
   selectRemaining,
 } from "../commons/budgetCalculation";
-import Piechart from "./PieChart";
-import Barchart from "./BarChart";
+import Piechart from "./Piechart";
+import Barchart from "./Barchart";
 
 function Budget() {
   const dispatch = useDispatch();
