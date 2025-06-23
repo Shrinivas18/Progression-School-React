@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="h-screen flex bg-gray-100">
       <SideBar />
-      <div className="border p-5 w-[100%] overflow-y-auto h-screen">
+      <div className="sahdow-xl p-5 w-[100%] overflow-y-auto h-screen">
         <Routes>
           <Route path="/" element={<Budget />} />
           <Route
