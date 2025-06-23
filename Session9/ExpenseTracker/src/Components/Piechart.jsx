@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import {
   PieChart as RePieChart,
@@ -10,7 +10,7 @@ import {
 } from "recharts";
 import donutchart from "../assets/donut-chart.png";
 
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#AF19FF"];
+const COLORS = ["#005F99", "#007A65", "#B38600", "#CC5C00", "#6A1B9A"];
 
 function Piechart() {
   const expenses = useSelector((state) => state.expenses) || [];
@@ -31,10 +31,6 @@ function Piechart() {
 
   const hasData = groupedData.length > 0;
 
-  useEffect(() => {
-    console.log("Grouped Expenses::::", groupedData);
-  }, [groupedData]);
-
   return (
     <div className="p-2 mt-5">
       {hasData ? (
@@ -44,10 +40,10 @@ function Piechart() {
               data={groupedData}
               cx="50%"
               cy="50%"
-              innerRadius="50%"
+              innerRadius="40%"
               outerRadius="80%"
               fill="#8884d8"
-              paddingAngle={5}
+              paddingAngle={1.5}
               dataKey="amount"
               nameKey="category"
               label
