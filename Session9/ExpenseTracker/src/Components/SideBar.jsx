@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import menu from "../assets/menu.png";
 import { NavLink } from "react-router-dom";
+import expenseTracker from "../assets/expense-tracker.png";
+
 function SideBar() {
   const [showSideBar, setShowSideBar] = useState(false);
 
@@ -8,25 +10,25 @@ function SideBar() {
     `shadow-lg p-2 rounded-md transition-colors ${
       isActive ? "bg-blue-500 text-white" : "text-gray-800 hover:bg-gray-200"
     }`;
-  
+
   return (
     <div
       className={
-        showSideBar ? "w-[20%] p-3 shadow-lg" : "w-[7%] p-3 shadow-lg"
+        showSideBar ? "lg:w-[15%] w-[100%] p-3 shadow-lg" : "lg:w-[10%] w-[20%] mt-5 "
       }
     >
       <div>
         {showSideBar ? (
-          <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-400 text-center mb-6">
-            Expense Tracker
-          </h1>
+          <h1 className="lg:size-[100%] lg:pr-5 lg:pt-5 lg:pb-5 lg:mb-5 size-4">
+          <img src={expenseTracker} alt="Expense Tracker Logo" />
+        </h1>
         ) : (
-          <h1 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-400 text-center mb-6">
-            Expense Tracker
+          <h1 className="lg:size-[100%] md:size-[100%] lg:mb-5 size-3 lg:p-3 p-2">
+            <img src={expenseTracker} alt="Expense Tracker Logo" />
           </h1>
         )}
         <img
-          className="size-6 cursor-pointer"
+          className="lg:size-6 cursor-pointer size-8"
           title="Menu"
           onClick={() => setShowSideBar(!showSideBar)}
           src={menu}
@@ -35,7 +37,7 @@ function SideBar() {
       </div>
       {showSideBar && (
         <div>
-          <nav className="flex flex-col mt-[10%] gap-7 text-xl ">
+          <nav className="flex lg:flex-col flex-row  mt-[10%] gap-7 text-xl ">
             <NavLink className={getLinkClasses} to="/">
               Budget
             </NavLink>

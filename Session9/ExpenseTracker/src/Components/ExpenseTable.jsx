@@ -2,14 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteExpense, patchExpense } from "../redux/actions";
 import SearchBox from "./SearchBox";
-import eye from "../assets/eye.png";
-import hidden from "../assets/hidden.png";
 
 function ExpenseTable() {
   const expenses = useSelector((state) => state.expenses);
   const [searchItem, setSearchItem] = useState("");
   const dispatch = useDispatch();
-  const [showTable, setShowTable] = useState();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
@@ -37,19 +34,7 @@ function ExpenseTable() {
   }, [searchItem]);
 
   return (
-    <div>
-      <button
-        className="mt-4 cursor-pointer"
-        onClick={() => setShowTable(!showTable)}
-      >
-        <img
-          className="size-5"
-          src={showTable ? hidden : eye}
-          title={showTable ? "Hide Expenses" : "Show Expenses"}
-          alt="show/hide icon"
-        />
-      </button>
-      {showTable && (
+    <div>      
         <div className="w-full mx-auto p-4 bg-white rounded-xl shadow-lg mt-4 overflow-x-auto">
           <SearchBox searchItem={searchItem} setSearchItem={setSearchItem} />
           <table className="min-w-full divide-y divide-gray-200 shadow-lg overflow-x-auto">
@@ -127,7 +112,7 @@ function ExpenseTable() {
             </button>
           </div>
         </div>
-      )}
+      
     </div>
   );
 }
