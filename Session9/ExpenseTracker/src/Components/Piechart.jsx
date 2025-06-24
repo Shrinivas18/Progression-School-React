@@ -22,7 +22,7 @@ function Piechart() {
       existing.amount += Number(curr.amount);
     } else {
       acc.push({
-        category: curr.category,
+        category: curr.category.toUpperCase(),
         amount: Number(curr.amount),
       });
     }
@@ -34,19 +34,17 @@ function Piechart() {
   return (
     <div className="p-2 mt-5">
       {hasData ? (
-        <ResponsiveContainer width="100%" height={300}>
+        <ResponsiveContainer width="100%" height={400}>
           <RePieChart>
             <Pie
               data={groupedData}
               cx="50%"
               cy="50%"
-              innerRadius="40%"
-              outerRadius="80%"
-              fill="#8884d8"
+              innerRadius="60%"
+              outerRadius="100%"
               paddingAngle={1.5}
               dataKey="amount"
               nameKey="category"
-              label
             >
               {groupedData.map((entry, index) => (
                 <Cell
@@ -55,6 +53,7 @@ function Piechart() {
                 />
               ))}
             </Pie>
+
             <Tooltip />
             <Legend />
           </RePieChart>
