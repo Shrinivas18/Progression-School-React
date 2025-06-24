@@ -44,20 +44,20 @@ function Budget() {
 
         {/* Summary Cards */}
 
-        <div className="grid grid-cols-3 gap-5 mt-8 text-wrap">
-          <div className="bg-purple-50 p-2 rounded-lg">
+        <div className="flex flex-wrap gap-5 mt-8 p-5 text-wrap">
+          <div className="bg-purple-50 p-2 rounded-lg w-[32%]">
             <h3 className="text-blue-500 font-bold text-[0.8rem]">
               Total Budget
             </h3>
             <p className="text-[1.5rem]">${budgetValue}</p>
           </div>
-          <div className="bg-green-50 p-3 rounded-lg">
+          <div className="bg-green-50 p-3 rounded-lg w-[32%]">
             <h3 className="text-green-500 font-bold text-[0.8rem]">
               Total Expense
             </h3>
             <p className="text-[1.5rem]">${total_expense}</p>
           </div>
-          <div className="bg-yellow-50 p-3 rounded-lg">
+          <div className="bg-yellow-50 p-3 rounded-lg w-[32%]">
             <h3 className="text-yellow-500 font-bold text-[0.8rem]">
               Remaining
             </h3>
@@ -66,11 +66,11 @@ function Budget() {
         </div>
       </div>
       <h2 className="text-xl font-semibold mt-5">Expense Distribution</h2>
-      <div className="flex flex-col lg:flex-row gap-10 mb-5">
-        <div className="w-full max-w-[40%] h-[40%]">
+      <div className="flex flex-col sm:flex-row sm:gap-5 gap-10 mb-5">
+        <div className="w-[80%] md:w-[60%] sm:w-[50%]" >
           <Piechart />
         </div>
-        <div className="w-full max-w-[40%] h-[40%]">
+        <div className="w-[80%] md:w-[60%] sm:w-[50%] ">
           <Barchart />
         </div>
       </div>
