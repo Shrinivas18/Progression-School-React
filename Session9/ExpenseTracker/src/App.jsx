@@ -10,9 +10,9 @@ function App() {
   return (
     <div>
       <TopBar />
-      <div className="h-screen flex bg-gray-100">
+      <div className="h-screen flex lg:flex-row max-md:flex-col md:flex-col bg-gray-100">
         <SideBar />
-        <div className="sahdow-xl p-5 w-[100%] overflow-y-auto h-screen">
+        <div className="shadow-xl p-5 w-[100%] overflow-y-auto h-screen">
           <Routes>
             <Route path="/" element={<Budget />} />
             <Route

@@ -46,26 +46,24 @@ function Budget() {
           </button>
         </form>
 
-        {/* Summary Cards */}
-
         <div className="flex flex-wrap max-md:flex-col max-md:mt-1 gap-4 mt-8 p-5 text-wrap">
-          <div className="bg-purple-50 p-2 rounded-lg w-[32%]  max-md:w-[70%]">
-            <h3 className="text-blue-500 font-bold text-[0.8rem]">
+          <div className="bg-purple-50 p-2 rounded-lg w-[32%]  max-md:w-[80%]">
+            <h3 className="text-purple-500 font-bold text-[0.8rem]">
               Total Budget
             </h3>
-            <p className="text-[1.5rem]">${budgetValue}</p>
+            <p className="text-[1.5rem] max-md:text-[1rem]">&#8377; {budgetValue}</p>
           </div>
-          <div className="bg-green-50 p-3 rounded-lg w-[32%] max-md:w-[70%]">
+          <div className="bg-green-50 p-3 rounded-lg w-[32%] max-md:w-[80%]">
             <h3 className="text-green-500 font-bold text-[0.8rem]">
               Total Expense
             </h3>
-            <p className="text-[1.5rem]">${total_expense}</p>
+            <p className="text-[1.5rem] max-md:text-[1rem]">&#8377; {total_expense}</p>
           </div>
-          <div className="bg-yellow-50 p-3 rounded-lg w-[32%] max-md:w-[70%]">
+          <div className="bg-yellow-50 p-3 rounded-lg w-[32%] max-md:w-[80%]">
             <h3 className="text-yellow-500 font-bold text-[0.8rem]">
               Remaining
             </h3>
-            <p className="text-[1.5rem]">${remainingBudget}</p>
+            <p className="text-[1.5rem] max-md:text-[1rem]">&#8377; {remainingBudget}</p>
           </div>
         </div>
       </div>
