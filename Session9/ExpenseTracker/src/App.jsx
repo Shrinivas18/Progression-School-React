@@ -4,26 +4,30 @@ import Budget from "./Components/Budget";
 import ExpenseForm from "./Components/ExpenseForm";
 import ExpenseTable from "./Components/ExpenseTable";
 import SideBar from "./Components/SideBar";
+import TopBar from "./Components/TopBar";
 
 function App() {
   return (
-    <div className="h-screen flex bg-gray-100">
-      <SideBar />
-      <div className="sahdow-xl p-5 w-[100%] overflow-y-auto h-screen">
-        <Routes>
-          <Route path="/" element={<Budget />} />
-          <Route
-            path="/expenses"
-            element={
-              <>
-                <ExpenseForm />
-                <ExpenseTable />
-              </>
-            }
-          />
-          <Route path="/menu3" element={<Budget />} />
-          <Route path="/menu4" element={<Budget />} />
-        </Routes>
+    <div>
+      <TopBar />
+      <div className="h-screen flex bg-gray-100">
+        <SideBar />
+        <div className="sahdow-xl p-5 w-[100%] overflow-y-auto h-screen">
+          <Routes>
+            <Route path="/" element={<Budget />} />
+            <Route
+              path="/expenses"
+              element={
+                <>
+                  <ExpenseForm />
+                  <ExpenseTable />
+                </>
+              }
+            />
+            <Route path="/menu3" element={<Budget />} />
+            <Route path="/menu4" element={<Budget />} />
+          </Routes>
+        </div>
       </div>
     </div>
   );

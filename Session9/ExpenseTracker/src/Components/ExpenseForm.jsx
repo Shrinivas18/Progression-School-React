@@ -2,10 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addExpense, updateExpense } from "../redux/actions";
 import { v4 as uuid } from "uuid";
-import {
-  selectRemaining,
-  selectTotalExpense,
-} from "../commons/budgetCalculation";
 
 function ExpenseForm() {
   const [formData, setFormData] = useState({
@@ -14,12 +10,10 @@ function ExpenseForm() {
     amount: "",
     category: "other",
   });
-  const remaining = useSelector(selectRemaining);
-  const [isEdit, setIsEdit] = useState(false);
-
-  const totalExpense = useSelector(selectTotalExpense);
-
+  const [totalExpense, setTotalExpense] = useState(0);
+  const [remaining, setRemaining] = useState(0);
   const budgetValue = useSelector((state) => state.budget);
+  const [isEdit, setIsEdit] = useState(false);
 
   const [amountToBeEdited, setAmountToBeEdited] = useState(null);
 
@@ -38,27 +32,13 @@ function ExpenseForm() {
     e.preventDefault();
 
     if (editExpense) {
-      if (totalExpense <= budgetValue) {
-        if (
-          Number(
-            totalExpense - Number(amountToBeEdited) + Number(formData.amount)
-          ) <= budgetValue
-        ) {
-          dispatch(updateExpense(formData));
-          setIsEdit(false);
-        } else {
-          alert("Expenses going out of Budget");
-        }
-      } else {
-        alert("Expenses going out of Budget");
-      }
+      dispatch(updateExpense(formData));
+      setIsEdit(false);
     } else {
-      if (totalExpense <= budgetValue) {
-        const newData = { ...formData, id: uuid() };
-        dispatch(addExpense(newData));
-      } else {
-        alert("Expenses going out of Budget");
-      }
+      console.log(budgetValue);
+      console.log(totalExpense);
+      const newData = { ...formData, id: uuid() };
+      dispatch(addExpense(newData));
     }
 
     setFormData({
@@ -79,10 +59,10 @@ function ExpenseForm() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold">Expenses</h1>
-      <div className="bg-white mt-5 shadow-md rounded-lg">
+      <h1 className="text-3xl font-bold max-md:text-2xl">Expenses</h1>
+      <div className="bg-white mt-5 shadow-md rounded-lg ">
         <form
-          className="grid grid-cols-4 pl-7 pr-7 pt-7 pb-4 gap-3"
+          className="grid grid-cols-4 pl-7 pr-7 pt-7 pb-4 gap-2 max-md:flex max-md:flex-col max-md:gap-2 max-md:p-4"
           onSubmit={handleSubmit}
         >
           <input
@@ -118,7 +98,7 @@ function ExpenseForm() {
           </select>
           <button
             type="submit"
-            className="bg-green-500 hover:bg-green-600 text-white rounded-md shadow-lg cursor-pointer"
+            className="bg-green-500 hover:bg-green-600 text-white rounded-md shadow-lg cursor-pointer max-md:p-2"
           >
             {isEdit ? "Update Expense" : "Add Expense"}
           </button>

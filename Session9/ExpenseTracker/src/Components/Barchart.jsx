@@ -36,7 +36,9 @@ function Barchart() {
       const data = payload[0].payload;
       return (
         <div className="bg-white border border-gray-300 rounded shadow-md p-2 text-sm">
-          <p>{data.category.toUpperCase()}: ₹ {data.amount}</p>
+          <p>
+            {data.category.toUpperCase()}: ₹ {data.amount}
+          </p>
         </div>
       );
     }
@@ -58,19 +60,18 @@ function Barchart() {
       </ul>
     );
   };
-  
 
   return (
     <div className="p-2 mt-5">
       {groupedData.length > 0 ? (
-        <ResponsiveContainer width="100%" height={400}>
+        <ResponsiveContainer width="100%" height={300}>
           <ReBarChart
             data={groupedData}
             margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
           >
             <CartesianGrid strokeDasharray="3 3" />
             <YAxis />
-            <Tooltip content={CustomTooltip}/>
+            <Tooltip content={CustomTooltip} />
             <Bar dataKey="amount">
               {groupedData.map((entry, index) => (
                 <Cell
