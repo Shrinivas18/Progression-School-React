@@ -65,7 +65,7 @@ function ExpenseTable() {
                     {item.category}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">
-                    <span className="text-black text-bold">$</span>
+                    <span className="text-black text-bold">&#8377; </span>
                     {item.amount}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-center">
