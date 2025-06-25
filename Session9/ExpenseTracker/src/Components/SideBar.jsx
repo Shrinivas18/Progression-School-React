@@ -1,36 +1,29 @@
 import React, { useState } from "react";
-import menu from "../assets/menu.png";
+import rightArrow from "../assets/right-arrow.png";
 import { NavLink } from "react-router-dom";
-import expenseTracker from "../assets/expense-tracker.png";
 
 function SideBar() {
   const [showSideBar, setShowSideBar] = useState(false);
 
   const getLinkClasses = ({ isActive }) =>
-    `shadow-lg p-2 rounded-md transition-colors ${
+    `shadow-lg px-4 py-2 text-xl bold rounded-md transition-all duration-300  &#8377; ${
       isActive ? "bg-blue-500 text-white" : "text-gray-800 hover:bg-gray-200"
     }`;
 
   return (
     <div
-      className={
-        showSideBar
-          ? "lg:w-[15%] w-[100%] p-3 shadow-lg"
-          : "lg:w-[10%] w-[20%] mt-5 "
-      }
+      className={showSideBar ? `transition-all duration-300 ease-in-out shadow-lg w-full lg:w-[15%] p-5`:`transition-all duration-300 ease-in-out shadow-lg w-full lg:w-[5%] pt-5`}
     >
-      <div>
+      <div className={`flex flex-row lg:flex-col gap-4 p-2 pl-1`}>
         <img
-          className="lg:size-6 cursor-pointer size-8"
-          title="Menu"
+          className="size-8 lg:size-6 cursor-pointer"
+          title="Navigation Bar"
           onClick={() => setShowSideBar(!showSideBar)}
-          src={menu}
-          alt="Menu Icon"
+          src={rightArrow}
+          alt="Expend Navigation Bar"
         />
-      </div>
-      {showSideBar && (
-        <div>
-          <nav className="flex lg:flex-col flex-row  mt-[10%] gap-7 text-md ">
+        {showSideBar && (
+          <nav className="flex flex-row flex-wrap lg:flex-col gap-5 text-md w-full">
             <NavLink className={getLinkClasses} to="/">
               Budget
             </NavLink>
@@ -38,14 +31,14 @@ function SideBar() {
               Expenses
             </NavLink>
             <NavLink className={getLinkClasses} to="/menu3">
-              menu 3
+              Menu 3
             </NavLink>
             <NavLink className={getLinkClasses} to="/menu4">
-              menu 4
+              Menu 4
             </NavLink>
           </nav>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
