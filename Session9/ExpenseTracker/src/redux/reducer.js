@@ -20,8 +20,8 @@ export const expenseReducer = (state = initialState, action) => {
       return {
         ...state,
         budget: action.payload.budget,
-        totalExpense: action.payload.totalExpense,
-        remaining: action.payload.remaining,
+        // totalExpense: action.payload.totalExpense,
+        // remaining: action.payload.remaining,
       };
     case ADD_EXPENSE:
       return {

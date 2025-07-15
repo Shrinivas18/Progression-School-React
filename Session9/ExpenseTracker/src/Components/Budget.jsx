@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setBudget } from "../redux/actions";
-import {
-  selectTotalExpense,
-  selectRemaining,
-} from "../commons/budgetCalculation";
 import Piechart from "./Piechart";
 import Barchart from "./Barchart";
 
@@ -12,14 +8,12 @@ function Budget() {
   const dispatch = useDispatch();
   const budgetValue = useSelector((state) => state.budget);
 
-  const total_expense = useSelector(selectTotalExpense);
-  const remainingBudget = useSelector(selectRemaining);
-
   const [newBudget, setNewBudget] = useState("");
 
   const updateAmounts = (e) => {
     e.preventDefault();
-    dispatch(setBudget(newBudget, total_expense, remainingBudget));
+    // dispatch(setBudget(newBudget, total_expense, remainingBudget));
+    dispatch(setBudget(newBudget));
   };
 
   return (
@@ -51,19 +45,21 @@ function Budget() {
             <h3 className="text-purple-500 font-bold text-[0.8rem]">
               Total Budget
             </h3>
-            <p className="text-[1.5rem] max-md:text-[1rem]">&#8377; {budgetValue}</p>
+            <p className="text-[1.5rem] max-md:text-[1rem]">
+              &#8377; {budgetValue}
+            </p>
           </div>
           <div className="bg-green-50 p-3 rounded-lg w-[32%] max-md:w-[80%]">
             <h3 className="text-green-500 font-bold text-[0.8rem]">
               Total Expense
             </h3>
-            <p className="text-[1.5rem] max-md:text-[1rem]">&#8377; {total_expense}</p>
+            <p className="text-[1.5rem] max-md:text-[1rem]">&#8377;</p>
           </div>
           <div className="bg-yellow-50 p-3 rounded-lg w-[32%] max-md:w-[80%]">
             <h3 className="text-yellow-500 font-bold text-[0.8rem]">
               Remaining
             </h3>
-            <p className="text-[1.5rem] max-md:text-[1rem]">&#8377; {remainingBudget}</p>
+            <p className="text-[1.5rem] max-md:text-[1rem]">&#8377;</p>
           </div>
         </div>
       </div>

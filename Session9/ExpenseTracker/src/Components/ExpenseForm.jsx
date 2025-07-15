@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addExpense, updateExpense } from "../redux/actions";
 import { v4 as uuid } from "uuid";
+import { calculateTotalExpense } from "../commons/budgetCalculation";
 
 function ExpenseForm() {
   const [formData, setFormData] = useState({
@@ -10,16 +11,17 @@ function ExpenseForm() {
     amount: "",
     category: "other",
   });
-  const [totalExpense, setTotalExpense] = useState(0);
-  const [remaining, setRemaining] = useState(0);
-  const budgetValue = useSelector((state) => state.budget);
+
   const [isEdit, setIsEdit] = useState(false);
+  const [sumOfExpenses, setSumOfExpenses] = useState(0);
+  const [limit, setLimit] = useState(0);
 
-  const [amountToBeEdited, setAmountToBeEdited] = useState(null);
-
-  const editExpense = useSelector((state) => state.editExpenseData);
   const dispatch = useDispatch();
 
+  const budgetValue = useSelector((state) => state.budget);
+  const editExpense = useSelector((state) => state.editExpenseData);
+  const expenses = useSelector((state) => state.expenses);
+  console.log("budgetValue", budgetValue);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -31,12 +33,16 @@ function ExpenseForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const newSum = calculateTotalExpense(sumOfExpenses, formData.amount);
+    setSumOfExpenses(newSum);
+    const newLimit = limit - Number(formData.amount);
+    setLimit(newLimit);
+    console.log("limit:::", newLimit);
+    console.log(newSum);
     if (editExpense) {
       dispatch(updateExpense(formData));
       setIsEdit(false);
     } else {
-      console.log(budgetValue);
-      console.log(totalExpense);
       const newData = { ...formData, id: uuid() };
       dispatch(addExpense(newData));
     }
@@ -51,11 +57,14 @@ function ExpenseForm() {
 
   useEffect(() => {
     if (editExpense) {
-      setAmountToBeEdited(editExpense.amount);
       setFormData(editExpense);
       setIsEdit(true);
     }
   }, [editExpense]);
+
+  useEffect(() => {
+    setLimit(budgetValue);
+  }, []);
 
   return (
     <div>
@@ -104,8 +113,11 @@ function ExpenseForm() {
           </button>
         </form>
         <div className=" pl-7 pb-1 text-gray-500">
-          <strong className="text-gray-900">Limit Left: </strong>
-          <strong>$ </strong> {remaining}
+          <h2>
+            <strong className="text-gray-900">Limit Left: </strong>
+            <strong>$ </strong>
+            {limit}
+          </h2>
         </div>
       </div>
     </div>
